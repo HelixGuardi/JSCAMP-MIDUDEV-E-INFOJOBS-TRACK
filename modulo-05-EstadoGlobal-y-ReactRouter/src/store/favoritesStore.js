@@ -7,7 +7,7 @@ export const useFavoritesStore = create((set, get) => ({
   favorites: [],
 
   // Acciones
-  addFavorites: (jobId) => {
+  addFavorite: (jobId) => {
     set((state) => ({
       favorites: state.favorites.includes(jobId)
         ? state.favorites

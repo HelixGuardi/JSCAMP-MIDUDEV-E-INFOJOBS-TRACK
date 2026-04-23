@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import { useAuthStore } from "../store/authStore";
+import { useFavoritesStore } from "../store/favoritesStore";
 
 const HeaderUserButton = () => {
   const { isLoggedIn, login, logout } = useAuthStore();
@@ -12,6 +13,11 @@ const HeaderUserButton = () => {
 };
 
 export function Header() {
+  const { isLoggedIn } = useAuthStore();
+  const { countFavorites } = useFavoritesStore();
+
+  const numberOfFavorites = countFavorites();
+
   return (
     <header>
       <a href="/" style={{ textDecoration: "none" }}>
@@ -40,14 +46,14 @@ export function Header() {
         >
           GitHub
         </a>
-        <NavLink
+        {/* <NavLink
           to="/"
           className={({ isActive }) =>
             isActive ? "active-anchor" : "non-active-anchor"
           }
         >
           Inicio
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to="/search"
           target="_self"
@@ -57,6 +63,18 @@ export function Header() {
         >
           Empleos
         </NavLink>
+
+        {isLoggedIn && (
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "active-anchor" : "non-active-anchor"
+            }
+            to="/profile"
+          >
+            Profile ❤️{numberOfFavorites}
+          </NavLink>
+        )}
+
         <NavLink
           to="/contact"
           className={({ isActive }) =>
