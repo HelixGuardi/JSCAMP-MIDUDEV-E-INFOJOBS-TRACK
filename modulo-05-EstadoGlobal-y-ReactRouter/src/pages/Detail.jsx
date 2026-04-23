@@ -4,7 +4,6 @@ import { Link } from "../components/Link";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import snarkdown from "snarkdown";
 import styles from "../styles/Detail.module.css";
-import { useAuth } from "../context/AuthContext";
 import { useAuthStore } from "../store/authStore";
 
 function JobSection({ title, content }) {
