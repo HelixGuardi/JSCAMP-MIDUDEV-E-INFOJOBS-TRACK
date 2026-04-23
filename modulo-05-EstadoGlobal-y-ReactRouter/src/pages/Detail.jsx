@@ -5,6 +5,7 @@ import { LoadingSpinner } from "../components/LoadingSpinner";
 import snarkdown from "snarkdown";
 import styles from "../styles/Detail.module.css";
 import { useAuth } from "../context/AuthContext";
+import { useAuthStore } from "../store/authStore";
 
 function JobSection({ title, content }) {
   const html = snarkdown(content);
@@ -55,7 +56,7 @@ function DetailPageHeader({ job }) {
 }
 
 function DetailApplyButton() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuthStore();
 
   return (
     <button disabled={!isLoggedIn} className={styles.applyButton}>
