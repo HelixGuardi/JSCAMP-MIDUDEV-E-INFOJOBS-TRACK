@@ -6,7 +6,10 @@ import { useAuthStore } from "../store/authStore";
 
 function JobCardFavoriteButton({ jobId }) {
   const { isLoggedIn } = useAuthStore();
-  const { toggleFavorite, isFavorite } = useFavoritesStore();
+
+  //suscribete a TODA la store y extrae TODA la store
+  const store = useFavoritesStore();
+  const { toggleFavorite, isFavorite } = store;
 
   return (
     <button
@@ -21,18 +24,33 @@ function JobCardFavoriteButton({ jobId }) {
   );
 }
 
-export function JobCard({ job }) {
-  const { id, titulo, empresa, ubicacion, descripcion } = job;
+function JobCardApplyButton({ jobId }) {
+  // lógica del botón de aplicar
   const [isApplied, setIsApplied] = useState(false);
-
-  const handleApplyClick = () => {
-    setIsApplied(true);
-  };
+  const { isLoggedIn } = useAuthStore();
 
   const buttonClasses = isApplied
     ? "button-apply-job is-applied"
     : "button-apply-job";
   const buttonText = isApplied ? "Aplicado" : "Aplicar";
+
+  const handleApplyClick = () => {
+    setIsApplied(true);
+  };
+
+  return (
+    <button
+      disabled={!isLoggedIn}
+      className={buttonClasses}
+      onClick={handleApplyClick}
+    >
+      {buttonText}
+    </button>
+  );
+}
+
+export function JobCard({ job }) {
+  const { id, titulo, empresa, ubicacion, descripcion } = job;
 
   return (
     <article
@@ -57,9 +75,7 @@ export function JobCard({ job }) {
         <Link href={`/jobs/${id}`} className={styles.details}>
           Ver detalles
         </Link>
-        <button className={buttonClasses} onClick={handleApplyClick}>
-          {buttonText}
-        </button>
+        <JobCardApplyButton jobId={id} />
         <JobCardFavoriteButton jobId={id} />
       </div>
     </article>

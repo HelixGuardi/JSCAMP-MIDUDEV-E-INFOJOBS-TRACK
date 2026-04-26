@@ -5,6 +5,7 @@ import { LoadingSpinner } from "../components/LoadingSpinner";
 import snarkdown from "snarkdown";
 import styles from "../styles/Detail.module.css";
 import { useAuthStore } from "../store/authStore";
+import { useFavoritesStore } from "../store/favoritesStore";
 
 function JobSection({ title, content }) {
   const html = snarkdown(content);
@@ -50,6 +51,7 @@ function DetailPageHeader({ job }) {
       </header>
 
       <DetailApplyButton />
+      <DetailFavoriteButton jobId={job.id} />
     </>
   );
 }
@@ -60,6 +62,23 @@ function DetailApplyButton() {
   return (
     <button disabled={!isLoggedIn} className={styles.applyButton}>
       {isLoggedIn ? "Aplicar ahora" : "Inicia sesión para aplicar"}
+    </button>
+  );
+}
+
+function DetailFavoriteButton({ jobId }) {
+  const { isLoggedIn } = useAuthStore();
+  const { isFavorite, toggleFavorite } = useFavoritesStore();
+
+  return (
+    <button
+      disabled={!isLoggedIn}
+      aria-label={
+        isFavorite(jobId) ? "Remove from favorites" : "Add to favorites"
+      }
+      onClick={() => toggleFavorite(jobId)}
+    >
+      {isFavorite(jobId) ? "❤️" : "🩶"}
     </button>
   );
 }
