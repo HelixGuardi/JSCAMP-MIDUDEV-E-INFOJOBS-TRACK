@@ -1,0 +1,8 @@
+{
+  "name": "ejemplos-de-node",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "author": "Victor Hugo Guardiola (alias HelixGuardiola)",
+  "license": "MIT"
+}
