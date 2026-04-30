@@ -4,5 +4,8 @@
   "main": "index.js",
   "type": "module",
   "author": "Victor Hugo Guardiola (alias HelixGuardiola)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ms": "^2.1.3"
+  }
 }

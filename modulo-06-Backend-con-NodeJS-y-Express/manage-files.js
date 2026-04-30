@@ -28,6 +28,8 @@ console.log("Archivo creado con contenido en mayúsculas");
     ⌨️ Entrada y salida (node:readline)
   */
 
+/* ---------------------------------------------- */
+
 /* TRABAJAR CON RUTAS DE ARCHIVOS EN NODE.JS */
 /* 
     Cuando trabajamos con archivos en Node.js es muy fácil cometer un error clásico: asumir que todas las rutas funcionan igual en todos los sistemas operativos.
