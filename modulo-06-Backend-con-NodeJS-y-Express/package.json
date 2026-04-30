@@ -6,6 +6,6 @@
   "author": "Victor Hugo Guardiola (alias HelixGuardiola)",
   "license": "MIT",
   "dependencies": {
-    "ms": "^2.1.3"
+    "ms": "2.1.3"
   }
 }
