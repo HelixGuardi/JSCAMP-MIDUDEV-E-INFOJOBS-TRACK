@@ -10,16 +10,15 @@ function sendJson(res, statusCode, data) {
 }
 
 const server = createServer((req, res) => {
-  if (req.url === "/") {
-    res.setHeader("Content-Type", "text/plain; charset=utf-8");
-    return res.end("Hola desde Node!🦖");
-  }
-
   if (req.url === "/users") {
     return sendJson(res, 200, [
       { id: 1, name: "Helix_Guardi" },
       { id: 2, name: "Victor Hugo Guardiola" },
     ]);
+  }
+
+  if (req.url === "/health") {
+    return sendJson(res, 200, { status: "ok", uptime: process.uptime() });
   }
 
   return sendJson(res, 404, { message: "Not Found" });

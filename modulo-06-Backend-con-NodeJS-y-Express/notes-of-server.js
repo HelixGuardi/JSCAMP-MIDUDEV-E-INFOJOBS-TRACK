@@ -48,6 +48,11 @@ const server = createServer((req, res) => {
     ]);
   }
 
+  // la ruta /health se utiliza para comprobar la API y asegurar de que va todo bien
+  if (req.url === "/health") {
+    return sendJson(res, 200, { status: "ok", uptime: process.uptime() });
+  }
+
   //Al envés de devolver el 404 así:
   /* res.statusCode = 404;
   return res.end("Not Found"); */
