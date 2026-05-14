@@ -25,11 +25,24 @@ const server = createServer((req, res) => {
 
 /* 
   Una vez definido el servidor, tenemos que decirle que “escuche” en un puerto específico de nuestra máquina para poder recibir tráfico.
+
+  const port = 0;
+  server.listen(port, () => {
+  const address = server.address();
+  console.log(`Servidor escuchando en http://localhost:${address.port}`);
+  });
+
+  Con el puerto en 0 y utilizando el address, se asigna el primer puerto que se encuentre disponible.
+
+  Sin embargo, lo correcto es utilizar una variable de entorno.
 */
-const port = 3000;
+
+process.loadEnvFile(); // read automatically .env y poner en el process.env todas las variables de entorno
+const port = process.env.PORT ?? 3000;
 
 server.listen(port, () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`);
+  const address = server.address();
+  console.log(`Servidor escuchando en http://localhost:${address.port}`);
 });
 
 /* 
