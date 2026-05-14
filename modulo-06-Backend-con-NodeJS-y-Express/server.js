@@ -10,14 +10,20 @@ function sendJson(res, statusCode, data) {
 }
 
 const server = createServer((req, res) => {
-  if (req.url === "/users") {
+  const { method, url } = req;
+
+  if (method !== "GET") {
+    return sendJson(res, 405, { error: "Method Not Allowed" });
+  }
+
+  if (url === "/users") {
     return sendJson(res, 200, [
       { id: 1, name: "Helix_Guardi" },
       { id: 2, name: "Victor Hugo Guardiola" },
     ]);
   }
 
-  if (req.url === "/health") {
+  if (url === "/health") {
     return sendJson(res, 200, { status: "ok", uptime: process.uptime() });
   }
 

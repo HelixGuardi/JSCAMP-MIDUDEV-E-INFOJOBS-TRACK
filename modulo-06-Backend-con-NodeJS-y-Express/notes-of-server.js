@@ -36,12 +36,21 @@ function sendJson(res, statusCode, data) {
 }
 
 const server = createServer((req, res) => {
-  if (req.url === "/") {
+  //con esto simplificamos el código de req.url a url apenas
+  const { method, url } = req;
+
+  //ademas, aqui nos aseguramos de aceptar tan solo el metodo GET y no cualquier otro
+  //hay imagenes de ejemplo que se pueden ver en la carpeta API calls from Bruno client
+  if (method !== "GET") {
+    return sendJson(res, 405, { error: "Method Not Allowed" });
+  }
+
+  if (url === "/") {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     return res.end("Hola desde Node!🦖");
   }
 
-  if (req.url === "/users") {
+  if (url === "/users") {
     return sendJson(res, 200, [
       { id: 1, name: "Helix_Guardi" },
       { id: 2, name: "Victor Hugo Guardiola" },
@@ -49,7 +58,7 @@ const server = createServer((req, res) => {
   }
 
   // la ruta /health se utiliza para comprobar la API y asegurar de que va todo bien
-  if (req.url === "/health") {
+  if (url === "/health") {
     return sendJson(res, 200, { status: "ok", uptime: process.uptime() });
   }
 
