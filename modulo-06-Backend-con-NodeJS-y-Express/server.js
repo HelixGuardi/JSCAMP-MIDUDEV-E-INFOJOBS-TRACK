@@ -18,9 +18,42 @@ import { createServer } from "node:http";
     - req (Request): Contiene toda la información de la petición que hace el cliente (la URL, el método HTTP, las cabeceras, etc.).
     - res (Response): Es el objeto que usamos para enviarle la respuesta al cliente.
 */
+
+/* 
+Para simplificar la acción de enviar un JSON, y no tener que estar escribiendo siempre:
+  if (req.url === "/users") {
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    return res.end(JSON.stringify([{ id: 1, name: "Helix_Guardi" }]));
+  }
+
+Haremos:
+*/
+
+function sendJson(res, statusCode, data) {
+  res.statusCode = statusCode;
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  return res.end(JSON.stringify(data));
+}
+
 const server = createServer((req, res) => {
-  res.setHeader("Content-Type", "text/plain; charset=utf-8");
-  res.end("Hola desde Node!🦖");
+  if (req.url === "/") {
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    return res.end("Hola desde Node!🦖");
+  }
+
+  if (req.url === "/users") {
+    return sendJson(res, 200, [
+      { id: 1, name: "Helix_Guardi" },
+      { id: 2, name: "Victor Hugo Guardiola" },
+    ]);
+  }
+
+  //Al envés de devolver el 404 así:
+  /* res.statusCode = 404;
+  return res.end("Not Found"); */
+
+  //Lo haremos utilizando la misma función de sendJson:
+  return sendJson(res, 404, { message: "Not Found" });
 });
 
 /* 
