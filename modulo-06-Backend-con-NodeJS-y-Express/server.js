@@ -95,3 +95,66 @@ server.listen(port, () => {
   const address = server.address();
   console.log(`Servidor escuchando en http://localhost:${address.port}`);
 });
+
+/* INTRODUCCIÓN A EXPRESS: Qué es y para qué sirve */
+/* 
+Hasta ahora hemos estado trabajando con Node.js puro, sin ningún tipo de dependencias externas. Hemos creado pequeños programas de línea de comandos, utilidades para manejar archivos, obtener información del sistema y también un servidor HTTP completamente nativo usando el módulo node:http.
+
+Ese servidor funcionaba correctamente: devolvía JSON, permitía hacer peticiones GET y POST, e incluso añadimos cosas como limit y offset. Todo estaba hecho con JavaScript puro y sin librerías externas.
+
+Y eso está muy bien.
+
+El problema del servidor nativo
+El problema aparece cuando la API empieza a crecer.
+
+Aunque el servidor nativo funciona, el código empieza a volverse:
+
+Más difícil de entender.
+Más repetitivo.
+Más costoso de mantener.
+Tenemos muchos if para comprobar el método HTTP, el pathname, gestionar manualmente las cabeceras, parsear la URL, manejar streams para leer el body y transformar los datos.
+
+Todo esto hace que tengamos que escribir mucho más código del necesario para resolver problemas comunes.
+
+Por qué introducir Express ahora
+Hasta este punto, usar http nativo ha sido excelente para entender las bases de cómo funciona un servidor en Node.js. Pero cuando una API crece, esta aproximación empieza a ser un poco rollo.
+
+Por eso, en este momento del curso, hacemos una introducción a Express.
+
+Qué es Express
+Express es un framework web minimalista y flexible para Node.js.
+
+Y sí, es un framework. No es una opinión: ellos mismos lo definen así.
+
+Es minimalista porque:
+
+No te impone una estructura de carpetas.
+No te obliga a seguir una arquitectura concreta.
+Te da utilidades y tú decides cómo organizar tu proyecto.
+Es flexible porque puedes hacer las cosas prácticamente como quieras.
+
+Qué nos permite hacer Express
+Express nos permite:
+
+Definir rutas de forma mucho más expresiva.
+Manejar peticiones y respuestas con más métodos y utilidades.
+Usar middlewares para reutilizar lógica.
+Gestionar errores de forma centralizada.
+Crear APIs y aplicaciones web de forma más sencilla.
+En resumen, nos da una capa de abstracción sobre el módulo http que nos ahorra muchísimo trabajo manual.
+
+Por qué usar un framework
+El servidor nativo no es malo, al contrario: funciona y es muy potente. Pero cuando el código crece, la complejidad también lo hace.
+
+Express existe para resolver justo ese problema:
+
+Reducir código repetido.
+Mejorar la legibilidad.
+Hacer que el código sea más fácil de mantener.
+Y por eso es el framework más utilizado en el ecosistema Node.js.
+
+Qué haremos a partir de ahora
+A partir de este punto del curso empezaremos a usar Express para construir nuestras APIs. Aprovecharemos sus utilidades, su sistema de rutas y su forma de trabajar para dejar atrás gran parte del código manual que teníamos con http nativo.
+
+Esto es solo la introducción. A partir de aquí empezamos a sacarle partido de verdad.
+*/
