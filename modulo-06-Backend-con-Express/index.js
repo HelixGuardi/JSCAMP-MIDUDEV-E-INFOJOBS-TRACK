@@ -3,7 +3,18 @@ import express from "express";
 const PORT = process.env.PORT || 8888;
 const app = express();
 
-app.get("/", (request, response) => {
+app.use((request, response, next) => {
+  const timeString = new Date().toLocaleTimeString();
+  console.log(`[${timeString}] ${request.method} ${request.url}`);
+  next();
+});
+
+const previousHomeMiddleware = (request, response, next) => {
+  console.log("Ejecutando el middleware previo a la ruta / ");
+  next();
+};
+
+app.get("/", previousHomeMiddleware, (request, response) => {
   response.send("<h1>Hello World!</h1>");
 });
 
