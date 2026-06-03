@@ -1,4 +1,5 @@
 import express from "express";
+import jobs from "./jobs.json" with { type: "json" };
 
 const PORT = process.env.PORT || 8888;
 const app = express();
@@ -20,14 +21,8 @@ app.get("/health", (request, response) => {
   });
 });
 
-app.get("/get-jobs", (req, res) => {
-  return res.json({
-    jobs: [
-      { id: 1, title: "Frontend Developer" },
-      { id: 2, title: "Backend Developer" },
-      { id: 3, title: "FullStack Developer" },
-    ],
-  });
+app.get("/get-jobs", async (req, res) => {
+  return res.json(jobs);
 });
 
 app.get("/get-single-job/:id", (req, res) => {
