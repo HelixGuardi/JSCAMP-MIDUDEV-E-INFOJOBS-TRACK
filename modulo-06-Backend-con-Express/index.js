@@ -9,12 +9,7 @@ app.use((request, response, next) => {
   next();
 });
 
-const previousHomeMiddleware = (request, response, next) => {
-  console.log("Ejecutando el middleware previo a la ruta / ");
-  next();
-};
-
-app.get("/", previousHomeMiddleware, (request, response) => {
+app.get("/", (request, response) => {
   response.send("<h1>Hello World!</h1>");
 });
 
@@ -23,6 +18,45 @@ app.get("/health", (request, response) => {
     status: "ok",
     uptime: process.uptime(),
   });
+});
+
+app.get("/get-jobs", (req, res) => {
+  return res.json({
+    jobs: [
+      { id: 1, title: "Frontend Developer" },
+      { id: 2, title: "Backend Developer" },
+      { id: 3, title: "FullStack Developer" },
+    ],
+  });
+});
+
+app.get("/get-single-job/:id", (req, res) => {
+  const { id } = req.params;
+
+  const idNumber = Number(id);
+
+  return res.json({
+    job: { id: idNumber, title: `Job with id ${id}` },
+  });
+});
+
+// Opcional --> /acd o /abcd
+app.get("/a{b}cd", (req, res) => {
+  return res.send("abcd o acd");
+});
+
+// Comodin --> puede ser lo que tu quieras. Suele ser muy interesantes para rutas más largas que tu no sabes como terminan
+app.get("/bb*bb", (req, res) => {
+  return res.send("ab*cd");
+});
+// Por ejemplo:
+app.get("/file/*filename", (req, res) => {
+  return res.send("file/*");
+});
+
+// Usar Regex
+app.get(/.*fly$/, (req, res) => {
+  return res.send("Terminando en fly");
 });
 
 app.listen(PORT, () => {
