@@ -22,7 +22,8 @@ app.get("/health", (request, response) => {
   });
 });
 
-app.get("/get-jobs", async (req, res) => {
+// Idempotente: porque el sistema queda igual si llamas varias veces
+app.get("/jobs", async (req, res) => {
   const {
     text,
     title,
@@ -60,7 +61,7 @@ app.get("/get-jobs", async (req, res) => {
   return res.json(paginatedJobs);
 });
 
-app.get("/get-single-job/:id", (req, res) => {
+app.get("/jobs/:id", (req, res) => {
   const { id } = req.params;
 
   const idNumber = Number(id);
@@ -68,6 +69,21 @@ app.get("/get-single-job/:id", (req, res) => {
   return res.json({
     job: { id: idNumber, title: `Job with id ${id}` },
   });
+});
+
+// NO es Idempotente
+app.post("/jobs", (req, res) => {});
+
+// Reemplazar un recurso completo
+app.put("/jobs/:id", (req, res) => {});
+
+// Actualizar parcialmente un recurso
+app.patch("/jobs/:id", (req, res) => {});
+
+app.delete("/jobs/:id", (req, res) => {
+  return res
+    .status(403)
+    .json({ error: "No tienes permisos para eliminar todos los trabajos" });
 });
 
 // Opcional --> /acd o /abcd
