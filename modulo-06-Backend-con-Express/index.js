@@ -22,7 +22,27 @@ app.get("/health", (request, response) => {
 });
 
 app.get("/get-jobs", async (req, res) => {
-  return res.json(jobs);
+  const { text, title, level, limit, technology, offset } = req.query;
+
+  let filteredJobs = jobs;
+
+  if (text) {
+    const searchTerm = text.toLowerCase();
+    filteredJobs = filteredJobs.filter(
+      (job) =>
+        job.titulo.toLowerCase().includes(searchTerm) ||
+        job.descripcion.toLowerCase().includes(searchTerm),
+    );
+  }
+
+  if (technology) {
+    filteredJobs = filteredJobs.filter((job) =>
+      job.tecnologias.includes(technology),
+    );
+  }
+
+  console.log({ limit, technology });
+  return res.json(filteredJobs);
 });
 
 app.get("/get-single-job/:id", (req, res) => {
