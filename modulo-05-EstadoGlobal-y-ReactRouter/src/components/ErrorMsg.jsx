@@ -1,6 +1,7 @@
 import errorStyles from "../styles/ErrorMsg.module.css";
 
 export function ErrorMsg({ mensajeDeError }) {
+  // todo | --> se puede mejorar haciendo que no refresque toda la pagina, sino que tan solo vuelva a intentar llamar a la API una vez más (useFilters.jsx > useEffect())
   const handleRefreshPage = () => {
     window.location.reload();
   };

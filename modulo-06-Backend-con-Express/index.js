@@ -1,9 +1,29 @@
 import express from "express";
+import cors from "cors";
 import jobs from "./jobs.json" with { type: "json" };
 import { DEFAULTS } from "./config.js";
 
 const PORT = process.env.PORT || DEFAULTS.PORT;
 const app = express();
+
+const ACCEPTED_ORIGINS = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:8888",
+  "https://midu.dev",
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (ACCEPTED_ORIGINS.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Origen no permitido"));
+    },
+  }),
+);
 
 app.use(express.json());
 
@@ -62,7 +82,12 @@ app.get("/jobs", async (req, res) => {
     offsetNumber + limitNumber,
   );
 
-  return res.json(paginatedJobs);
+  return res.json({
+    data: paginatedJobs,
+    total: filteredJobs.length,
+    limit: limitNumber,
+    offset: offsetNumber,
+  });
 });
 
 app.get("/jobs/:id", (req, res) => {

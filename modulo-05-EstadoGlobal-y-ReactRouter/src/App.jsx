@@ -18,6 +18,7 @@ const Login = lazy(() => import("./pages/Login.jsx"));
 const Register = lazy(() => import("./pages/Register.jsx"));
 
 function App() {
+  //todo | --> hacer con que NO se recargue toda la pagina y/o todos sus componentes al hacer aparecer el NetworkToastCard
   const { isOnline, isShown, isMounted } = useNetworkStatus();
 
   return (
