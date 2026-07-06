@@ -22,7 +22,7 @@ export class JobModel {
 
     if (technology) {
       filteredJobs = filteredJobs.filter((job) =>
-        job.tecnologias.includes(technology),
+        job.data.technology.includes(technology),
       );
     }
 
@@ -56,7 +56,7 @@ export class JobModel {
     return newJob;
   }
 
-  static async update({}) {}
+  static async update({ id, data }) {}
 
   static async partialUpdate({}) {}
 
