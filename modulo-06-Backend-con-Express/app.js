@@ -28,8 +28,10 @@ app.get("/health", (request, response) => {
 
 app.use("/jobs", jobsRouter);
 
-app.listen(PORT, () => {
-  console.log(`Servidor levantado en http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Servidor levantado en http://localhost:${PORT}`);
+  });
+}
 
 export default app;
