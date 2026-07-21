@@ -14,7 +14,7 @@ before(async () => {
   });
 });
 
-// Después de todos los tesets, se ejecuta UNA vez, para cerrar el servidor
+// Después de todos los tests, se ejecuta UNA vez, para cerrar el servidor
 after(async () => {
   return new Promise((resolve, reject) => {
     server.close((err) => {
