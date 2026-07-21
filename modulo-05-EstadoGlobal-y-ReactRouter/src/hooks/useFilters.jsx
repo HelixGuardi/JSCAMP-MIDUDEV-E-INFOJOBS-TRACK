@@ -96,7 +96,7 @@ export function useFilters() {
         const queryParams = params.toString();
 
         const response = await fetch(
-          `http://localhost:8888/jobs?${queryParams}`,
+          `https://modulo-06-backend-con-express.vercel.app/jobs?${queryParams}`,
         );
 
         if (!response.ok) {
