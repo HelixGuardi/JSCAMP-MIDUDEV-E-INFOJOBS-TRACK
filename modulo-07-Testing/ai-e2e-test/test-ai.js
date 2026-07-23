@@ -89,3 +89,7 @@ test("Un usuario puede buscar, aplicar y favoritar una oferta de trabajo", async
   ℹ todo 0
   ℹ duration_ms 18258.9616
  */
+
+/* También se pueden utilizar "Agentes", pero es algo más bestia y sale caro, así que ni lo testearé aqui porque no podré hacer nada con un plano gratis limitado del Modelo de la AI
+    Aunque, a futuro, cuando tenga más tiempo y experiencia con AI, me dedicaré en conseguir operar buenos modelos de AI de forma gratis y eficiente para testeos y trabajo.
+  */
