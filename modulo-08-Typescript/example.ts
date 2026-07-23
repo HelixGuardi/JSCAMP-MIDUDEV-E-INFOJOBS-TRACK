@@ -47,3 +47,35 @@ Si los datos vienen de fuera (usuario, API, DB, archivo, etc.), tienes que compr
   
 Eso sí protege tu app cuando está corriendo, porque no depende del sistema de tipos, depende de comprobaciones reales.
 */
+
+/* 
+JavaScript es tipado débil
+  Esto no es "JavaScript es malo", es "JavaScript toma decisiones por ti". Y a veces, esas decisiones son... creativas.
+  La razón principal: hace conversiones implícitas (type coercion)
+
+  TIPADO DÉBIL vs TIPADO FUERTE
+    - tipado débil: el lenguaje intenta "arreglar" tipos por su cuenta para que la operación siga adelante
+    - tipado fuerte: el lenguaje es más estricto y no te deja mezclar tipos a la ligera.
+
+  En JavaScript, muchas veces, en vez de fallar, convierte.
+
+  Entonces, ¿TypeScript "endurece" JavaScript?
+    No.
+    TS no cambia el comportamiento de JavaScript en runtime. Si en JavaScript ``` "21" * 2 ``` funciona, seguirá funcionando.
+    Lo que hace TS es avisarte antes:
+      - El editor te marca el problema
+      - El compilador te lo canta
+      - Tú lo arreglas antes de que llegue a producción
+    TS no evita la conversión en JavaScript, pero te ayuda a no depender de ella.
+
+    ¿Por qué esto importa en una API?
+    En backend (Express, Node.js), muchísimas cosas vienen como string:
+      - req.query
+      - req.params
+      - Datos de formularios
+
+    Si asumes números sin validar, te puedes comer:
+      - Cálculos raros
+      - Comparaciones inconsiestentes
+      - Bugs que aparecen "solo a veces"
+*/
