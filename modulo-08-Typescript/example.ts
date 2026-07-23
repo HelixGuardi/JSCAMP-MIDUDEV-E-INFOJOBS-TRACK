@@ -79,3 +79,57 @@ JavaScript es tipado débil
       - Comparaciones inconsiestentes
       - Bugs que aparecen "solo a veces"
 */
+
+/* 
+¿Por qué aprender TypeScript?
+  Encontrar problemas antes de ejecutar, mejorar la experiencia en el editor y reducir sustos en producción.
+  Al final, TypeScript no es solo "tipar por tipar" - es una herramienta para trabajar más seguro y más rápido.
+
+1) Detectar errores antes de ejecutar
+Con TypeScript puedes pillar errores en tiempo de desarrollo:
+
+Fallos que en JavaScript verías “cuando explota” al ejecutar.
+Errores que el editor te señala al momento.
+Menos bugs silenciosos que pasan a producción sin avisar.
+La gracia es que el feedback llega antes, cuando corregir cuesta menos.
+
+2) Mejor autocompletado y experiencia de desarrollo
+Cuando tu código tiene tipos, el editor entiende mejor lo que está pasando:
+
+Autocompletado más preciso.
+Ayudas de parámetros y retornos.
+Navegación por el código más cómoda.
+Esto se nota especialmente cuando el proyecto crece o cuando vuelves a un módulo semanas después.
+
+3) Código autodocumentado (contratos claros)
+TypeScript hace que los “contratos” del código queden explícitos:
+
+Qué acepta una función.
+Qué devuelve.
+Qué forma tienen los objetos y estructuras.
+Resultado: menos tiempo leyendo código para adivinar intenciones y más tiempo construyendo.
+
+4) Refactoring más seguro
+Una de las mejores razones para usar TS: refactors con menos miedo.
+
+Cambiar nombres.
+Mover funciones.
+Modificar estructuras de datos.
+TypeScript te obliga a revisar los usos y te avisa de lo que se rompe. Menos “lo cambio y rezo”.
+
+Extra: TypeScript está en todas partes (y en IA cada vez más)
+Más allá de lo técnico, hay un motivo muy práctico: TypeScript se ha convertido en uno de los lenguajes más relevantes del ecosistema, y está ganando muchísimo terreno en proyectos modernos.
+
+Y algo interesante: en flujos de IA generativa y trabajo con agentes, TypeScript se está volviendo muy común (aunque Python siga siendo el rey en IA). Cada vez más tooling, SDKs y frameworks están apostando por TS para estos casos.
+
+Ejemplo real
+Hay frameworks y SDKs de agentes que están construidos directamente en TypeScript y están viendo muy buena adopción, justo por cómo encaja TS en estos flujos.
+
+Resumen
+Si te quedas con 4 puntos, que sean estos:
+
+Detectar errores en tiempo de desarrollo
+Mejor autocompletado y experiencia de editor
+Código autodocumentado con contratos claros
+Refactoring más seguro sin miedo a romper
+*/
