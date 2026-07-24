@@ -17,6 +17,13 @@ const result = double(parsedInput); // 4
 
 console.log(result);
 
+/* Extensión Imprescindible: Pretty TypeScript Errors (yoavbls) 
+  Cuando empiezas a trabajar en serio con TS, llega un momento en el que los errores dejan de ser "un mensajito" y pasan a ser
+  un conjuro en latín: largos, con tipos anidados y difíciles de leer. La buena noticia es que hay una extensión que te cambia la vida
+  (Pretty TypeScript Errors de yoavbls). Lo que hace es simple y brutal: reformatea y presenta el error de TS de forma visual,
+  resaltando lo importante y separando la información para que entiendas rápido qué está pasando.
+*/
+
 /* 
 TypeScript solo existe antes de ejecutar
   TS opera en tiempo de compilación:
