@@ -140,3 +140,17 @@ Mejor autocompletado y experiencia de editor
 Código autodocumentado con contratos claros
 Refactoring más seguro sin miedo a romper
 */
+
+/* EJECUTAR CÓDIGO TS CON NODE */
+/* 
+  Todo lo que hemos visto hasta aqui es ejecutable con NodeJS, por que Node ya tiene soporte a la sintaxis de TS (no a toda).
+  basta con utilizar el comando: node
+  ejemplo:
+    
+     node .\02-type-narrowing.ts
+        2026-07-29T17:22:39.197Z
+        Wed, 29 Jul 2026 17:22:39 GMT
+        Esto es una fecha 2024-06-01
+        Sat, 01 Jun 2024 00:00:00 GMT
+
+*/
