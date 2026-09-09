@@ -1,0 +1,73 @@
+.spinnerContainer {
+  position: relative;
+  height: 50dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo {
+  width: 100px;
+  height: 102px;
+  border-radius: 100%;
+  position: absolute;
+  top: 45%;
+  left: calc(50% - 50px);
+}
+
+/* Cada círculo */
+.circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  /* Parte visible del spinner */
+  .inner {
+    width: 102%;
+    height: 101%;
+    border-radius: 100%;
+    border: 3px solid rgba(0, 153, 255, 0.7);
+    border-right: none;
+    border-top: none;
+    background-clip: padding;
+    box-shadow: inset -3px 0px 11px rgba(0, 170, 255, 0.308);
+    animation: spin 1.5s linear infinite;
+  }
+}
+
+/* Rotaciones */
+.circle:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.circle:nth-child(2) {
+  transform: rotate(0deg);
+}
+
+.circle:nth-child(3) {
+  transform: rotate(0deg);
+}
+
+.circle:nth-child(4) {
+  transform: rotate(70deg);
+}
+
+.circle:nth-child(5) {
+  transform: rotate(140deg);
+}
+
+/* Animación */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Rotación global del spinner */
+.demo {
+  animation: spin 5s linear infinite;
+}

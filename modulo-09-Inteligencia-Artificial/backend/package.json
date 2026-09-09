@@ -1,0 +1,21 @@
+{
+  "name": "modulo-06-backend-con-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Victor Hugo Guardiola Pereira",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "ai": "^7.0.95",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "openai": "^7.7.0"
+  }
+}

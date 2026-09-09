@@ -1,0 +1,170 @@
+/* pages/JobDetail.module.css */
+.detailsFatherContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.container {
+  padding-block: 2rem;
+  padding-bottom: 3.5rem;
+  max-width: 90dvw;
+  margin: 0 auto;
+}
+
+.loading,
+.error {
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.loadingText {
+  color: var(--text-muted);
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.errorButton {
+  color: #09f;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.errorButton:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.breadcrumbButton {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbButton:hover {
+  color: var(--text-primary);
+}
+
+.breadcrumbSeparator {
+  margin: 0 0.2rem;
+}
+
+.breadcrumbCurrent {
+  color: var(--text-primary);
+  pointer-events: none;
+}
+
+.contentDetailsContainer {
+  padding: 1rem 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  padding: 0;
+
+  & > div:first-of-type:only-of-type {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.meta {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.applyButton {
+  width: 100%;
+  background: #09f;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 3rem;
+  transition: background 0.2s;
+  cursor: pointer;
+  box-shadow: 0 3px 15px rgba(0, 153, 255, 0.55);
+}
+
+.applyButton:hover {
+  background: #0088e6;
+}
+
+.applyButton:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.55);
+}
+
+.applyButton:disabled:hover {
+  background: #666;
+}
+
+@media (min-width: 640px) {
+  .applyButton {
+    width: auto;
+  }
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sectionContent {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .detailsFatherContainer {
+    padding: 0.95rem;
+  }
+
+  .contentDetailsContainer {
+    padding: 1rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .title {
+      font-size: 1.95rem;
+    }
+
+    .meta {
+      font-size: 1.1rem;
+    }
+  }
+}

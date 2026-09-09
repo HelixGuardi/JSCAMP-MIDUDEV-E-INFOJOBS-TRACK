@@ -1,0 +1,5 @@
+Las carpetas "examples", "frontend" y "backend" se han creado justo después de la clase de numero 10 (NotebookLM Aprende 10x con IA usando tus propias fuentes), es decir, a partir de la clase numero 11 (¿Qué es un monorepo? Monoreporsitorio multipaquete).
+
+En la carpeta examples, está todo lo visto en clase y todo el código hecho desde la primera clase del modulo de IA hasta la décima clase (10 - NotebookLM Aprende 10x con IA usando tus propias fuentes);
+El frontend que se sigue desde este modulo de IA, viene directamente de un copia y pega de todo el código que ya teníamos en el modulo 05 Estado Global y React Router;
+El backend que se sigue desde este modulo de IA, viene directamente de un copia y pega de todo el código que ya teníamos en el modulo 04 Vite React.
