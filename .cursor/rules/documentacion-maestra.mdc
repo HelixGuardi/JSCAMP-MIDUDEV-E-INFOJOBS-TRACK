@@ -1,0 +1,14 @@
+---
+description: Reglas para generar la documentación maestra personal del JSCAMP.
+globs: ["**/*.md"]
+alwaysApply: false
+---
+
+# Reglas para la Documentación Maestra
+
+- **Propósito:** Crear una guía de referencia personal y práctica, no un libro de texto.
+- **Tono:** Directo, técnico y en español. Segunda persona ("tú"), como un recordatorio para ti mismo.
+- **Enfoque:** Explica el "cómo" y el "porqué" de forma concisa. Prioriza los pasos naturales y los patrones de código que se repiten.
+- **Fuente de verdad:** Basa tus respuestas **exclusivamente** en el código y los apuntes de esta carpeta. No inventes ni añadas conocimiento externo.
+- **Formato de salida:** Usa Markdown con encabezados claros, bloques de código y listas. Evita párrafos largos.
+- **Si hay ambigüedad:** Si el código es de un ejercicio muy simple o está incompleto, indícalo explícitamente (ej: "Este patrón es de un ejercicio básico, en un proyecto real se haría X").
